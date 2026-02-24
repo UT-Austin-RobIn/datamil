@@ -1,5 +1,18 @@
 # DataMIL: Selecting Data for Robot Imitation Learning with Datamodels
-This repository is the official code for the paper [DataMIL: Selecting Data for Robot Imitation Learning with Datamodels](https://arxiv.org/abs/2505.09603). We provide detailed instructions for setting up the data, computing datamodels and training policies on selected data, on both the MetaWorld and LIBERO benchmarks.
+
+[Shivin Dass](https://shivindass.github.io/)<sup>\*</sup>,
+[Alaa Khaddaj](https://scholar.google.com/citations?user=BA1kFjMAAAAJ&hl=en)<sup>\*</sup>, 
+[Logan Engstrom](https://loganengstrom.com/), 
+[Aleksander Madry](https://madry.mit.edu/),
+[Andrew Ilyas](https://andrewilyas.com/)<sup>†</sup>,
+[Roberto Martín-Martín](https://robertomartinmartin.com/)<sup>†</sup>
+
+<sup>\*</sup> Equal contribution. <sup>†</sup> Equal Advising.
+
+This repository is the official code release for the paper [DataMIL: Selecting Data for Robot Imitation Learning with Datamodels](https://arxiv.org/abs/2505.09603). We provide detailed instructions for setting up the data, computing datamodels and training policies on selected data, on both the MetaWorld and LIBERO benchmarks.
+
+
+<a href='https://robin-lab.cs.utexas.edu/datamodels4imitation/'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/abs/2505.09603'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 
 ## Installation
 ```
@@ -26,7 +39,7 @@ export EXP_DIR=/path/to/experiments_dir
 
 
 ### Setup StreamingDataset
-We use [streaming](https://github.com/mosaicml/streaming) for deterministic dataloading during metagradient estimation. Setup our provided fork.
+We use [streaming](https://github.com/ShivinDass/streaming) for deterministic dataloading during metagradient estimation. Setup our provided fork.
 ```
 git clone https://github.com/ShivinDass/streaming.git
 cd streaming 
@@ -97,7 +110,7 @@ The script will compute datamodels for the specified number of iterations and se
 export CUDA_VISIBLE_DEVICES=0,1,2,3 # adjust batch size in config accordingly
 ./scripts/selected_cotrain_libero.sh
 ```
-The script will train and evaluate 5 different seeds of a policy on the selected indices from (1). The results would be saved in `EXP_DIR/eval_results/<task>`.
+The script will train and evaluate 5 different seeds of a policy on the selected indices from (1). The results would be saved in `EXP_DIR/eval_results/<task>/`.
 
 ## Citation
 ```
